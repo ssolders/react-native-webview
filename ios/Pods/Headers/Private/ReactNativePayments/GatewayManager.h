@@ -1,0 +1,1 @@
+../../../../../node_modules/react-native-payments/lib/ios/GatewayManager.h

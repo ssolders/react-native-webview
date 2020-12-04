@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cashier</title>
+    <script type=text/javascript src='https://static.paymentiq.io/cashier/cashier.experimental.js'></script>
+    <!--<script type="text/javascript" src="http://localhost:9091/dist/cashier.js"></script>-->
+    <style> body { margin: 0px; } #cashier { height: calc(100vh - 4px); margin: 0 auto; opacity: 0; transition: opacity .1s ease-in; transition-delay: .6s; }</style>
+  </head>
+  <body>
+    <div id='cashier'></div>
+      <script>
+          var CashierInstance = new _PaymentIQCashier('#cashier', 
+  {
+    "environment": "test",
+    "locale": "en_GB",
+    "userId": "test",
+    // "userId": "INTERAC_CAD",
+    "merchantId": '19911212',
+    "showFooter": false,
+    "theme": {
+        "input": {
+            "color": "#222"
+        },
+        "labels": {
+            "color": "hsla(0,0%,100%,.7)"
+        },
+        "headings": {
+            "color": "hsla(0,0%,100%,.7)"
+        },
+        "loader": {
+            "color": "#f0cc11"
+        },
+        "buttons": {
+            "color": "#f0cc11"
+        },
+        "headerbackground": {
+            "color": "#2f3333"
+        },
+        "background": {
+            "color": "#2e3436"
+        },
+        "cashierbackground": {
+            "color": "#2e3436"
+        }
+    }
+},
+(api) => {
+    var start = null
+    var element = document.getElementById('cashier')
+    function step(timestamp) {
+      if (!start) start = timestamp
+      var progress = timestamp - start
+      if (progress < 2000) {
+        element.style.opacity = '1'
+        window.requestAnimationFrame(step)
+      }
+    }
+    window.requestAnimationFrame(step)
+
+    api.css(`
+      .creditcard-number-input {
+        font-size: 9px !important;
+      }
+    `)
+  }
+)    
+      </script>
+  </body>
+</html>

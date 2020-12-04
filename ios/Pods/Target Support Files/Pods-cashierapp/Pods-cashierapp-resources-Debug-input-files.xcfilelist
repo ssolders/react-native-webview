@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-cashierapp/Pods-cashierapp-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-UI-Localization.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-Drop-In-Localization.bundle
+${PODS_ROOT}/Stripe/InternalFrameworks/Stripe3DS2.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle

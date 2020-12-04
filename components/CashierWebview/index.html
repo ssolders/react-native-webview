@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cashier</title>
+        <!-- <script type=text/javascript src='https://pay.paymentiq.io/cashier/cashier.js'></script> -->
+        <script type=text/javascript src='https://static.paymentiq.io/cashier/cashier.js'></script>
+        <style> html, body { margin: 0px; height: 100%; width: 100%; display: flex; } #cashier { flex-grow: 1; }</style>
+    </head>
+    <body>
+    <div id='cashier'></div>
+
+  <script>
+    var CashierInstance = new _PaymentIQCashier('#cashier', {
+      merchantId: '1405',
+      userId: 'TEST_CAD',
+      // userId: 'INOVAPAY_BRL',
+      environment: 'test',
+      amount: '11',
+      // providerType: 'bank',
+      showAccounts: 'inline',
+      "scrollToPm": "START",
+      "showFooter": false,
+      "showListHeaders": true,
+      "user": {
+        "email": "eur@devcode.se"
+      },
+      "theme": {
+        "input": {
+            "color": "#1e1e1e"
+        },
+        "labels": {
+            "color": "#1e1e1e"
+        },
+        "headings": {
+            "color": "#1e1e1e"
+        },
+        "loader": {
+            "color": "#29b355"
+        },
+        "buttons": {
+            "color": "#000000"
+        },
+        "cardbackground": {
+            "color": "#ffffff"
+        }
+    }
+    }, (api) => {    
+        console.log('ONLOAD CALLBACK')
+        api.on({
+          update: function(data) { 
+            console.log('The passed in data was set', data)
+          },
+          success: function(data) { 
+            alert('SUCCESS - YAY')
+            console.log('SUCCESSFUL TRANSACTION IN CALLBACK')
+          },
+          failure: function(data) { 
+            alert('FAILED BUHU')
+          }
+        })
+      }
+    )    
+  </script>
+  </body>
+</html>

@@ -1,3 +1,10 @@
+Demo / proof-of-concept app for displaying the PaymentIQ Cashier inside a React Native application via a webview.
+
+1) Show the PaymentIQ Cashier webapp in an iframe
+2) Handle redirects / providers showing in iframes
+3) Handle redirects to third-party apps when initiated by the Cashier
+4) Native handling of ApplePay
+
 ## Setup
 
 ```
